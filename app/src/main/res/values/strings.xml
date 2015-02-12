@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">MyRestaurant</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_welcome">MyRestaurant</string>
+    <string name="menu_exit">Exit</string>
+    <string name="statistics">We have not sold anything yet!</string>
 
 </resources>
