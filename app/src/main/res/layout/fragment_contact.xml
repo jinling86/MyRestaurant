@@ -7,17 +7,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity$ContactFragment">
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/imageButton_contact_ling"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/contact_button_height"
+        android:layout_marginLeft="@dimen/contact_button_margin"
+        android:layout_marginRight="@dimen/contact_button_margin"
+        android:layout_marginTop="@dimen/contact_button_margin"
+        android:layout_marginBottom="@dimen/contact_button_margin"
+        android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click Ling!"
-        android:id="@+id/textView_contact_ling"
-        android:layout_gravity="center_horizontal" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/layout_ling">
 
+            <ImageView
+                android:layout_width="@dimen/contact_image_dimen"
+                android:layout_height="@dimen/contact_image_dimen"
+                android:id="@+id/imageView_contact_ling"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="8dp"
+                android:textSize="12sp"
+                android:text="@string/contact_ling"
+                android:id="@+id/textView_contact_ling"
+                android:gravity="center"
+                android:textColor="#FF000000"/>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton_contact_ling"
+            android:background="#00FFFFFF"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/contact_button_height"
+        android:layout_marginLeft="@dimen/contact_button_margin"
+        android:layout_marginRight="@dimen/contact_button_margin"
+        android:layout_marginTop="@dimen/contact_button_margin"
+        android:layout_marginBottom="@dimen/contact_button_margin"
+        android:layout_gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton_contact_xi"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
 </LinearLayout>

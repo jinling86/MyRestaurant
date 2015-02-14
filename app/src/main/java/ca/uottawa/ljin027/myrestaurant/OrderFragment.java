@@ -18,7 +18,7 @@ public class OrderFragment
         extends android.support.v4.app.Fragment
         implements View.OnClickListener {
 
-    private static final String TAG = "OrderFragment";
+    private static final String TAG = "--> OrderFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {

@@ -13,5 +13,6 @@
     <string name="password_hint">Enter your password here</string>
     <string name="sign_in_slogan">Sign in/up to taste our delicious food</string>
     <string name="sign_in">Click to Sign up(in)</string>
+    <string name="contact_ling">Ling (Chef)\n\nXinDongFang Chef School\nMayor in French Cuisine\n\nClick to See Detail</string>
 
 </resources>
