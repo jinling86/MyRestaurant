@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:text="Order Now!"
         android:id="@+id/button_order"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/Base.V14.Theme.AppCompat.Light" />
 
 </LinearLayout>

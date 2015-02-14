@@ -33,7 +33,7 @@ public class OrderFragment
         switch (view.getId()) {
             case R.id.button_order:
                 Log.i(TAG, "!!!!!! Order Button Clicked");
-                MainActivity.newOrder();
+                MainActivity.data.newOrder();
                 break;
         }
     }

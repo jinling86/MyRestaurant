@@ -5,5 +5,13 @@
     <string name="action_welcome">MyRestaurant</string>
     <string name="menu_exit">Exit</string>
     <string name="statistics">We have not sold anything yet!</string>
+    <string name="username_error">Username Format Error!</string>
+    <string name="password_error">Password Format Error!</string>
+    <string name="greet_to">Welcome</string>
+    <string name="sign_out">Sign out</string>
+    <string name="username_hint">Enter your name here</string>
+    <string name="password_hint">Enter your password here</string>
+    <string name="sign_in_slogan">Sign in/up to taste our delicious food</string>
+    <string name="sign_in">Click to Sign up(in)</string>
 
 </resources>

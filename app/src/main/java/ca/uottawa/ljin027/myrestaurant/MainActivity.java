@@ -184,13 +184,5 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    static private int orderStatistics = 0;
-
-    static public void newOrder() {
-        orderStatistics++;
-    }
-
-    static public int getOrderStatistics() {
-        return orderStatistics;
-    }
+    static public MainDatabase data = new MainDatabase ();
 }

@@ -25,7 +25,7 @@ public class WelcomeFragment extends android.support.v4.app.Fragment {
 
     @Override
     public void onResume() {
-        orderStatistics.setText("We sold " + MainActivity.getOrderStatistics() + " orders today!");
+        orderStatistics.setText("We sold " + MainActivity.data.getOrderStatistics() + " orders today!");
         super.onResume();
         Log.i(TAG, "!!!!!! Resumed and Updated");
     }
