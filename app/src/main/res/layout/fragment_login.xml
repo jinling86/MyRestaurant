@@ -3,34 +3,87 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity$LoginFragment" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Please Login In !"
-        android:id="@+id/textView_login"
-        android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:orientation="horizontal"
+    <TextView android:text="Welcome!"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="User Name: "
-        android:id="@+id/textView_username" />
+        android:gravity="left|center_vertical"
+        android:textColor="#ff000000"
+        android:id="@+id/textView_login_greeting"
+        android:textSize="16sp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:id="@+id/editText_username" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView_login_greeting"
+        android:layout_marginTop="64dp"
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true">
+
+            <TextView android:text="Sign up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingBottom="@dimen/login_signup_margin"
+                android:textColor="#ff000000"
+                android:textSize="24sp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="@dimen/login_horizontal_margin"
+                android:paddingRight="@dimen/login_horizontal_margin"
+                >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_vertical_margin"
+                    android:inputType="textPersonName"
+                    android:hint="Enter your name here"
+                    android:ems="10"
+                    android:id="@+id/editText_login_username"
+                    android:background="#ffffd0fd" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_vertical_margin"
+                    android:inputType="textPassword"
+                    android:hint="Enter your password here"
+                    android:ems="10"
+                    android:id="@+id/editText_login_password"
+                    android:autoText="true"
+                    android:layout_below="@+id/editText_login_username"
+                    android:layout_marginTop="20dp"
+                    android:background="#fffffcdc" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click to Login"
+                    android:id="@+id/button_login"
+                    style="@android:style/Holo.ButtonBar.AlertDialog"
+                    android:singleLine="true"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/editText_login_password"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
