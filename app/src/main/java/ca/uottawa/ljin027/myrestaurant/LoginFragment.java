@@ -96,9 +96,11 @@ public class LoginFragment extends BitmapFragment {
         signOutButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.data.newUser(null);
-                loginGreetings.setText(getGreeting());
-                Toast.makeText(getActivity(), "Sign out successfully !", Toast.LENGTH_SHORT).show();
+                if(MainActivity.data.hasUser()) {
+                    MainActivity.data.newUser(null);
+                    loginGreetings.setText(getGreeting());
+                    Toast.makeText(getActivity(), "Sign out successfully !", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

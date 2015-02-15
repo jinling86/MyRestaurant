@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
     ViewPager viewPager;
 
     final private int opaque = 255;
-    final private int semi_opaque = 100;
+    final private int semi_opaque = 255;
 
     static public MainDatabase data = new MainDatabase();
 
