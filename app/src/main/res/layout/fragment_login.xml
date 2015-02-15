@@ -44,7 +44,7 @@
                     android:id="@+id/button_sign_out"
                     android:singleLine="true"
                     android:textSize="@dimen/login_button_size"
-                    android:background="@color/logout_button"
+                    android:background="@drawable/logout_button"
                     />
             </LinearLayout>
 
@@ -103,8 +103,9 @@
                     android:textSize="@dimen/login_button_size"
                     android:layout_below="@id/editText_login_password"
                     android:layout_marginTop="@dimen/login_widget_margin"
-                    android:background="@color/login_button"
-                    android:layout_centerHorizontal="true" />
+                    android:background="@drawable/login_button"
+                    android:layout_centerHorizontal="true"
+                    android:shadowRadius="50.0"/>
 
             </RelativeLayout>
 
