@@ -10,68 +10,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by Ling on 11/02/2015.
  */
-public class OrderFragment
-        extends android.support.v4.app.Fragment
-        implements View.OnClickListener {
+public class OrderFragment extends BitmapFragment{
 
-    private static final String TAG = "--> OrderFragment";
+    // Constructor, initialize super class and TAG
+    public OrderFragment() {
+        super();
+        TAG = "--> OrderFragment";
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        // Create view
         final View view = inflater.inflate(R.layout.fragment_order, container, false);
+
+        // When the order button is clicked, add update the order statistics
         Button orderButton = (Button) view.findViewById(R.id.button_order);
-        orderButton.setOnClickListener(this);
-        Log.i(TAG, "!!!!!! ViewCreated");
-        return view;
-    }
-
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button_order:
+        orderButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
                 Log.i(TAG, "!!!!!! Order Button Clicked");
-                MainActivity.data.newOrder();
-                break;
-        }
-    }
+                if(!MainActivity.data.hasUser()) {
+                    MainActivity currentActivity = (MainActivity) getActivity();
+                    currentActivity.gotoFragment(MainActivity.LOGIN_FRAGMENT);
+                    Toast.makeText(getActivity(), "Sign in to make order!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    MainActivity.data.newOrder();
+                    MainActivity currentActivity = (MainActivity) getActivity();
+                    currentActivity.gotoFragment(MainActivity.WELCOME_FRAGMENT);
+                    Toast.makeText(getActivity(), "Thank you for your purchase!", Toast.LENGTH_SHORT).show();
+                }
 
-    @Override
-    public void onResume() {
-        resetImages();
-        super.onResume();
-        Log.i(TAG, "!!!!!! Resumed");
-    }
-
-    @Override
-    public void onPause() {
-        recycleImages();
-        super.onPause();
-        Log.i(TAG, "!!!!!! Paused");
-    }
-
-    private void resetImages() {
-        final ImageView bmpView = (ImageView) getActivity().findViewById(R.id.imageView_food_sandwiches);
-        final BitmapDrawable background = (BitmapDrawable) bmpView.getDrawable();
-        if(background == null) {
-            Bitmap bmp = BitmapFactory.decodeStream(getResources().openRawResource(+R.drawable.food_sandwiches));
-            bmpView.setImageDrawable(new BitmapDrawable(getResources(), bmp));
-        }
-    }
-
-    // http://stackoverflow.com/questions/6447535/jpg-as-background-in-activity-produces-memory-leak
-    // http://android-developers.blogspot.co.uk/2009/01/avoiding-memory-leaks.html
-    private void recycleImages() {
-        final ImageView bmpView = (ImageView) getActivity().findViewById(R.id.imageView_food_sandwiches);
-        if (bmpView != null) {
-            final BitmapDrawable background = (BitmapDrawable) bmpView.getDrawable();
-            if (background != null) {
-                background.getBitmap().recycle();
-                bmpView.setImageDrawable(null);
-                System.gc();
             }
-        }
+        });
+        Log.i(TAG, "!!!!!! ViewCreated");
+
+        // Add resource to bitmap manager
+        addBitmap(R.id.imageView_food_sandwiches, R.drawable.food_sandwiches);
+
+        return view;
     }
 }

@@ -14,62 +14,39 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.util.Set;
+import java.util.TreeMap;
+
 /**
  * Created by Ling on 10/02/2015.
  */
-public class ContactFragment extends android.support.v4.app.Fragment {
-    private static final String TAG = "--> ContactFragment";
+public class ContactFragment extends BitmapFragment {
+
+    public ContactFragment() {
+        super();
+        TAG = "--> ContactFragment";
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        // Create view
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
+
+        // Implement button click listener
         ImageButton contactLingButton = (ImageButton) view.findViewById(R.id.imageButton_contact_ling);
         contactLingButton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
                         Log.i(TAG, "!!!!!! Contact Ling Clicked");
-                        Uri uri = Uri.parse("http://www.google.com");
+                        Uri uri = Uri.parse(getString(R.string.ling_url));
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                 }
             });
         Log.i(TAG, "!!!!!! ViewCreated");
+
+        // Add resource to bitmap manager
+        addBitmap(R.id.imageView_contact_ling, R.drawable.head_ling);
+
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        resetImages();
-        super.onResume();
-        Log.i(TAG, "!!!!!! Resumed");
-    }
-
-    @Override
-    public void onPause() {
-        recycleImages();
-        super.onPause();
-        Log.i(TAG, "!!!!!! Paused");
-    }
-
-    private void resetImages() {
-        final ImageView imageLing = (ImageView) getActivity().findViewById(R.id.imageView_contact_ling);
-        BitmapDrawable background = (BitmapDrawable) imageLing.getDrawable();
-        if(background == null) {
-            Bitmap bmp = BitmapFactory.decodeStream(getResources().openRawResource(+R.drawable.head_ling_umbrella));
-            imageLing.setImageDrawable(new BitmapDrawable(getResources(), bmp));
-        }
-    }
-
-    // http://stackoverflow.com/questions/6447535/jpg-as-background-in-activity-produces-memory-leak
-    // http://android-developers.blogspot.co.uk/2009/01/avoiding-memory-leaks.html
-    private void recycleImages() {
-        final ImageView imageLing = (ImageView) getActivity().findViewById(R.id.imageView_contact_ling);
-        if (imageLing != null) {
-            final BitmapDrawable background = (BitmapDrawable) imageLing.getDrawable();
-            if (background != null) {
-                background.getBitmap().recycle();
-                imageLing.setImageDrawable(null);
-                System.gc();
-            }
-        }
     }
 }

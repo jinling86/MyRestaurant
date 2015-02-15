@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <bitmap
+            android:id="@+id/background_1"
+            android:gravity="fill"
+            android:src="@drawable/background_1" />
+    </item>
+    <item>
+        <bitmap
+            android:id="@+id/background_2"
+            android:gravity="fill"
+            android:src="@drawable/background_2" />
+    </item>
+    <item>
+        <bitmap
+            android:id="@+id/background_3"
+            android:gravity="fill"
+            android:src="@drawable/background_3" />
+    </item>
+    <item>
+        <bitmap
+            android:id="@+id/background_4"
+            android:gravity="fill"
+            android:src="@drawable/background_4" />
+    </item>
+</layer-list>

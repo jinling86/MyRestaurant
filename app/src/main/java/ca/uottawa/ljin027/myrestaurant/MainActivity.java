@@ -1,6 +1,9 @@
 package ca.uottawa.ljin027.myrestaurant;
 
 import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +30,16 @@ public class MainActivity extends ActionBarActivity {
     TabsAdapter tabsAdapter;
     ViewPager viewPager;
 
+    final private int opaque = 255;
+    final private int semi_opaque = 100;
+
+    static public MainDatabase data = new MainDatabase();
+
+    public static int WELCOME_FRAGMENT = 0;
+    public static int LOGIN_FRAGMENT = 1;
+    public static int ORDER_FRAGMENT = 2;
+    public static int CONTACT_FRAGMENT = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +59,24 @@ public class MainActivity extends ActionBarActivity {
         tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_contact),ContactFragment.class, null);
 
         // http://stackoverflow.com/questions/25867376/animation-in-viewpager-tab-change-fadein-fadeout-as-like-linkedin-introduction
+        final LayerDrawable background = (LayerDrawable) viewPager.getBackground();
+        background.getDrawable(WELCOME_FRAGMENT).setAlpha(opaque);
+        background.getDrawable(LOGIN_FRAGMENT).setAlpha(0);
+        background.getDrawable(ORDER_FRAGMENT).setAlpha(0);
+        background.getDrawable(CONTACT_FRAGMENT).setAlpha(0);
         viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View view, float position) {
-                /*
-                Integer index = (Integer) view.getTag();
-                if(index != null) {
-                    Log.i(TAG, "!!!!!! Position changed : " + position + " index : " + index);
+                int index = (Integer) view.getTag();
+                Drawable currentDrawable = background.getDrawable(index);
+
+                if(position <= -1 || position >= 1) {
+                    currentDrawable.setAlpha(0);
+                } else if(position == 0) {
+                    currentDrawable.setAlpha(opaque);
+                } else {
+                    currentDrawable.setAlpha((int)(opaque - Math.abs(position*semi_opaque)));
                 }
-                */
             }
         });
 
@@ -83,6 +105,15 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Switch among fragments, hope it work well
+    public void gotoFragment(int fragmentIndex) {
+        if(fragmentIndex == WELCOME_FRAGMENT
+            || fragmentIndex == LOGIN_FRAGMENT
+            || fragmentIndex == ORDER_FRAGMENT
+            || fragmentIndex == CONTACT_FRAGMENT)
+            tabsAdapter.onPageSelected(fragmentIndex);
     }
 
     // http://developer.android.com/reference/android/support/v4/view/ViewPager.html
@@ -166,23 +197,21 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-
             if(object instanceof WelcomeFragment) {
-                view.setTag(0);
-            }
-            if(object instanceof OrderFragment) {
-                view.setTag(1);
+                view.setTag(WELCOME_FRAGMENT);
             }
             if(object instanceof LoginFragment) {
-                view.setTag(2);
+                view.setTag(LOGIN_FRAGMENT);
+            }
+            if(object instanceof OrderFragment) {
+                view.setTag(ORDER_FRAGMENT);
             }
             if(object instanceof ContactFragment) {
-                view.setTag(3);
+                view.setTag(CONTACT_FRAGMENT);
             }
 
             return super.isViewFromObject(view, object);
         }
     }
 
-    static public MainDatabase data = new MainDatabase ();
 }
