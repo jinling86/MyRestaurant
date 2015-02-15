@@ -22,6 +22,7 @@ import java.util.TreeMap;
  * Created by Ling on 11/02/2015.
  */
 public class LoginFragment extends BitmapFragment {
+    TextView loginGreetings = null;
 
     // Constructor, initialize super class and TAG
     public LoginFragment() {
@@ -35,9 +36,7 @@ public class LoginFragment extends BitmapFragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         // Add button click listener
-        final TreeMap<String, String> currentUsers = new TreeMap<String, String>();
-
-        final TextView loginGreetings = (TextView) view.findViewById(R.id.textView_login_greeting);
+        loginGreetings = (TextView) view.findViewById(R.id.textView_login_greeting);
         final TextView loginUsername = (TextView) view.findViewById(R.id.editText_login_username);
         final TextView loginPassword = (TextView) view.findViewById(R.id.editText_login_password);
 
@@ -56,26 +55,30 @@ public class LoginFragment extends BitmapFragment {
                     return;
                 }
 
-                if (currentUsers.containsKey(username)) {
-                    if (!currentUsers.get(username).equals(password)) {
+                if (MainActivity.data.hasRegistered(username)) {
+                    if (!MainActivity.data.hasRightPassword(username, password)) {
                         // User enters wrong password
                         Toast.makeText(getActivity(), "Password Error!", Toast.LENGTH_SHORT).show();
                     } else {
                         // Username and password is alright
-                        loginGreetings.setText(getString(R.string.greet_to) + " " + username + " !");
+                        MainActivity.data.newUser(username);
+
+                        loginGreetings.setText(getGreeting());
                         loginUsername.setText("");
                         loginPassword.setText("");
-                        MainActivity.data.newUser(username);
+
                         Toast.makeText(getActivity(), "Sign in as " + username, Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     if (password.length() != 0) {
                         // New user signs up
-                        currentUsers.put(username, password);
-                        loginGreetings.setText(getString(R.string.greet_to) + " " + username + " !");
+                        MainActivity.data.addUser(username, password);
+                        MainActivity.data.newUser(username);
+
+                        loginGreetings.setText(getGreeting());
                         loginUsername.setText("");
                         loginPassword.setText("");
-                        MainActivity.data.newUser(username);
+
                         Toast.makeText(getActivity(), "Sign up as " + username, Toast.LENGTH_SHORT).show();
                     } else {
                         // Password should contain 1 letter
@@ -94,7 +97,7 @@ public class LoginFragment extends BitmapFragment {
             @Override
             public void onClick(View view) {
                 MainActivity.data.newUser(null);
-                loginGreetings.setText(getString(R.string.greet_to));
+                loginGreetings.setText(getGreeting());
                 Toast.makeText(getActivity(), "Sign out successfully !", Toast.LENGTH_SHORT).show();
             }
         });
@@ -128,5 +131,19 @@ public class LoginFragment extends BitmapFragment {
         addBitmap(R.id.imageButton_login_twitter, R.drawable.ic_twitter);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        loginGreetings.setText(getGreeting());
+        super.onResume();
+        Log.i(TAG, "!!!!!! Resumed and Updated");
+    }
+
+    private String getGreeting() {
+        if(MainActivity.data.hasUser())
+            return getString(R.string.greet_to) + " " + MainActivity.data.getCurrentUser()  + " !";
+        else
+            return getString(R.string.greet_to);
     }
 }

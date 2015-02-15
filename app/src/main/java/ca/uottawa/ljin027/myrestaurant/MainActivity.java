@@ -81,14 +81,18 @@ public class MainActivity extends ActionBarActivity {
         });
 
         if (savedInstanceState != null) {
-            actionBar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
+            actionBar.setSelectedNavigationItem(savedInstanceState.getInt("tab position", 0));
+            data = savedInstanceState.getParcelable("order state");
         }
     }
 
+    // We save two sets of values when the app is temporarily stopped
+    // The first is the position of the fragment tab; The second is current signed up/ logged in users
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("tab", getSupportActionBar().getSelectedNavigationIndex());
+        outState.putInt("tab position", getSupportActionBar().getSelectedNavigationIndex());
+        outState.putParcelable("order state", data);
     }
 
     @Override
