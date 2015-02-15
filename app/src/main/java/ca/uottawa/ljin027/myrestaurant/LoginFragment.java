@@ -22,7 +22,12 @@ import java.util.TreeMap;
  * Created by Ling on 11/02/2015.
  */
 public class LoginFragment extends BitmapFragment {
-    TextView loginGreetings = null;
+    private TextView loginGreetings = null;
+    private TextView loginHint = null;
+    private TextView loginUsername = null;
+    private TextView loginPassword = null;
+    private Button signInButton = null;
+    private Button signOutButton = null;
 
     // Constructor, initialize super class and TAG
     public LoginFragment() {
@@ -37,11 +42,12 @@ public class LoginFragment extends BitmapFragment {
 
         // Add button click listener
         loginGreetings = (TextView) view.findViewById(R.id.textView_login_greeting);
-        final TextView loginUsername = (TextView) view.findViewById(R.id.editText_login_username);
-        final TextView loginPassword = (TextView) view.findViewById(R.id.editText_login_password);
+        loginHint = (TextView) view.findViewById(R.id.textView_sign_in_please);
+        loginUsername = (TextView) view.findViewById(R.id.editText_login_username);
+        loginPassword = (TextView) view.findViewById(R.id.editText_login_password);
 
-        final Button signInButton = (Button) view.findViewById(R.id.button_sign_in);
-        final Button signOutButton = (Button) view.findViewById(R.id.button_sign_out);
+        signInButton = (Button) view.findViewById(R.id.button_sign_in);
+        signOutButton = (Button) view.findViewById(R.id.button_sign_out);
 
         // When the sign in button is clicked, sign in/up the user if the password is right/legal
         signInButton.setOnClickListener(new Button.OnClickListener() {
@@ -66,6 +72,7 @@ public class LoginFragment extends BitmapFragment {
                         loginGreetings.setText(getGreeting());
                         loginUsername.setText("");
                         loginPassword.setText("");
+                        disableLogin();
 
                         Toast.makeText(getActivity(), "Sign in as " + username, Toast.LENGTH_SHORT).show();
                     }
@@ -78,6 +85,7 @@ public class LoginFragment extends BitmapFragment {
                         loginGreetings.setText(getGreeting());
                         loginUsername.setText("");
                         loginPassword.setText("");
+                        disableLogin();
 
                         Toast.makeText(getActivity(), "Sign up as " + username, Toast.LENGTH_SHORT).show();
                     } else {
@@ -99,6 +107,7 @@ public class LoginFragment extends BitmapFragment {
                 if(MainActivity.data.hasUser()) {
                     MainActivity.data.newUser(null);
                     loginGreetings.setText(getGreeting());
+                    enableLogin();
                     Toast.makeText(getActivity(), "Sign out successfully !", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -138,6 +147,11 @@ public class LoginFragment extends BitmapFragment {
     @Override
     public void onResume() {
         loginGreetings.setText(getGreeting());
+        if(MainActivity.data.hasUser()) {
+            disableLogin();
+        } else {
+            enableLogin();
+        }
         super.onResume();
         Log.i(TAG, "!!!!!! Resumed and Updated");
     }
@@ -147,5 +161,23 @@ public class LoginFragment extends BitmapFragment {
             return getString(R.string.greet_to) + " " + MainActivity.data.getCurrentUser()  + " !";
         else
             return getString(R.string.greet_to);
+    }
+
+    private void disableLogin() {
+        loginGreetings.setVisibility(View.VISIBLE);
+        loginHint.setVisibility(View.INVISIBLE);
+        loginUsername.setVisibility(View.INVISIBLE);
+        loginPassword.setVisibility(View.INVISIBLE);
+        signInButton.setVisibility(View.INVISIBLE);
+        signOutButton.setVisibility(View.VISIBLE);
+    }
+
+    private void enableLogin() {
+        loginGreetings.setVisibility(View.VISIBLE);
+        loginHint.setVisibility(View.VISIBLE);
+        loginUsername.setVisibility(View.VISIBLE);
+        loginPassword.setVisibility(View.VISIBLE);
+        signInButton.setVisibility(View.VISIBLE);
+        signOutButton.setVisibility(View.INVISIBLE);
     }
 }

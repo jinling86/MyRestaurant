@@ -1,7 +1,6 @@
 package ca.uottawa.ljin027.myrestaurant;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,6 +62,7 @@ public class MainActivity extends ActionBarActivity {
         background.getDrawable(LOGIN_FRAGMENT).setAlpha(0);
         background.getDrawable(ORDER_FRAGMENT).setAlpha(0);
         background.getDrawable(CONTACT_FRAGMENT).setAlpha(0);
+
         viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View view, float position) {
@@ -75,7 +74,8 @@ public class MainActivity extends ActionBarActivity {
                 } else if(position == 0) {
                     currentDrawable.setAlpha(opaque);
                 } else {
-                    currentDrawable.setAlpha((int)(opaque - Math.abs(position*semi_opaque)));
+                    // The square operation make the effect smooth
+                    currentDrawable.setAlpha((int)(opaque - position*position*semi_opaque));
                 }
             }
         });
