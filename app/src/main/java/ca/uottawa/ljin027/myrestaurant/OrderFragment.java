@@ -50,7 +50,7 @@ public class OrderFragment extends BitmapFragment{
         Log.i(TAG, "!!!!!! ViewCreated");
 
         // Add resource to bitmap manager
-        addBitmap(R.id.imageView_food_sandwiches, R.drawable.food_sandwiches);
+        addBitmap(R.id.imageView_food_sandwiches, R.drawable.food_dueling_lobster_tails);
 
         return view;
     }

@@ -4,24 +4,24 @@
         <bitmap
             android:id="@+id/background_1"
             android:gravity="fill"
-            android:src="@drawable/background_1" />
+            android:src="@drawable/background_horizontal_1" />
     </item>
     <item>
         <bitmap
             android:id="@+id/background_2"
             android:gravity="fill"
-            android:src="@drawable/background_2" />
+            android:src="@drawable/background_horizontal_2" />
     </item>
     <item>
         <bitmap
             android:id="@+id/background_3"
             android:gravity="fill"
-            android:src="@drawable/background_3" />
+            android:src="@drawable/background_horizontal_3" />
     </item>
     <item>
         <bitmap
             android:id="@+id/background_4"
             android:gravity="fill"
-            android:src="@drawable/background_4" />
+            android:src="@drawable/background_horizontal_4" />
     </item>
 </layer-list>
