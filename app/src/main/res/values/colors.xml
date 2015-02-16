@@ -12,6 +12,6 @@
     <item name="order_confirm" type="color">#64000000</item>
     <item name="holo" type="color">#32969696</item>
     <item name="report_button" type="color">#ff908dff</item>
-    <item name="story_text" type="color">#ffff743a</item>
+    <item name="story_text" type="color">#fff5f5f5</item>
 
 </resources>

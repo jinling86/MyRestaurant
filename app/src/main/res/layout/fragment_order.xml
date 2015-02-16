@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/order_default_count"
                     android:textSize="@dimen/order_count_text_size"
-                    android:id="@+id/textView_food_1_amount" />
+                    android:id="@+id/textView_food_1_count" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/order_default_count"
                     android:textSize="@dimen/order_count_text_size"
-                    android:id="@+id/textView_food_2_amount" />
+                    android:id="@+id/textView_food_2_count" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -266,7 +266,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/order_default_count"
                     android:textSize="@dimen/order_count_text_size"
-                    android:id="@+id/textView_food_3_amount" />
+                    android:id="@+id/textView_food_3_count" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -353,7 +353,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/order_default_count"
                     android:textSize="@dimen/order_count_text_size"
-                    android:id="@+id/textView_food_4_amount" />
+                    android:id="@+id/textView_food_4_count" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -382,6 +382,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/order_slogan"
+            android:textColor="@color/order_light"
             android:id="@+id/button_order"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"

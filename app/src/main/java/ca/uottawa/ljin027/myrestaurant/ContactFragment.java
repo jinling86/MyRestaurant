@@ -1,9 +1,6 @@
 package ca.uottawa.ljin027.myrestaurant;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-
-import java.util.Set;
-import java.util.TreeMap;
 
 /**
  * Created by Ling on 10/02/2015.
@@ -52,6 +45,30 @@ public class ContactFragment extends BitmapFragment {
             }
         });
         Log.i(TAG, "!!!!!! ViewCreated");
+
+        // When the facebook icon is clicked, browse the facebook.com
+        ImageButton facebookButton = (ImageButton) view.findViewById(R.id.imageButton_contact_facebook);
+        facebookButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "!!!!!! Facebook Clicked");
+                Uri uri = Uri.parse(getString(R.string.facebook_url));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        // When the twitter icon is clicked, browse the twitter.com
+        ImageButton twitterButton = (ImageButton) view.findViewById(R.id.imageButton_contact_twitter);
+        twitterButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "!!!!!! Twitter Clicked");
+                Uri uri = Uri.parse(getString(R.string.twitter_url));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
         // Add resource to bitmap manager
         addBitmap(R.id.imageView_contact_ling, R.drawable.head_ling);

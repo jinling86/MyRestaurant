@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
     final private int opaque = 255;
     final private int semi_opaque = 255;
 
-    static public MainDatabase data = new MainDatabase();
+    static public MainDatabase data = null;
 
     public static int WELCOME_FRAGMENT = 0;
     public static int LOGIN_FRAGMENT = 1;
@@ -42,6 +42,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        data = new MainDatabase();
 
         viewPager = (ViewPager) findViewById(R.id.pager);
 

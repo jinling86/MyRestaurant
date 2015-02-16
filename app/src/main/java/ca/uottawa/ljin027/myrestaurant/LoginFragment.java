@@ -1,9 +1,6 @@
 package ca.uottawa.ljin027.myrestaurant;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -118,7 +114,7 @@ public class LoginFragment extends BitmapFragment {
         facebookButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Log.i(TAG, "!!!!!! Fackbook Clicked");
+            Log.i(TAG, "!!!!!! Facebook Clicked");
             Uri uri = Uri.parse(getString(R.string.facebook_url));
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
