@@ -63,6 +63,30 @@
         android:layout_marginBottom="@dimen/contact_button_margin"
         android:layout_gravity="center_horizontal">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/layout_xi">
+
+            <ImageView
+                android:layout_width="@dimen/contact_image_dimen"
+                android:layout_height="@dimen/contact_image_dimen"
+                android:id="@+id/imageView_contact_xi"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="8dp"
+                android:textSize="12sp"
+                android:text="@string/contact_xi"
+                android:id="@+id/textView_contact_xi"
+                android:gravity="center"
+                android:textColor="#FF000000"/>
+
+        </LinearLayout>
+
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -70,6 +94,28 @@
             android:visibility="invisible" />
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/contact_button_margin"
+        android:layout_marginBottom="@dimen/social_media_icon_margin"
+        android:layout_marginEnd="@dimen/social_media_icon_margin">
+        <ImageButton
+            android:layout_width="@dimen/social_media_icon_weight"
+            android:layout_height="@dimen/social_media_icon_weight"
+            android:id="@+id/imageButton_contact_facebook"/>
+
+        <ImageButton
+            android:layout_width="@dimen/social_media_icon_weight"
+            android:layout_height="@dimen/social_media_icon_weight"
+            android:id="@+id/imageButton_contact_twitter"
+            android:layout_marginStart="@dimen/social_media_icon_margin" />
+
+    </LinearLayout>
+
 </LinearLayout>
 
 </ScrollView>

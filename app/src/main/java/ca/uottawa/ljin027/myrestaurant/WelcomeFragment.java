@@ -25,11 +25,14 @@ public class WelcomeFragment extends BitmapFragment {
     }
 
     @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_welcome, container, false);
-            orderStatistics = (TextView) view.findViewById(R.id.textView_count);
-            Log.i(TAG, "!!!!!! ViewCreated");
-            return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_welcome, container, false);
+        orderStatistics = (TextView) view.findViewById(R.id.textView_count);
+        Log.i(TAG, "!!!!!! ViewCreated");
+
+        addBitmap(R.id.imageView_log, R.drawable.ic_log);
+
+        return view;
     }
 
     @Override

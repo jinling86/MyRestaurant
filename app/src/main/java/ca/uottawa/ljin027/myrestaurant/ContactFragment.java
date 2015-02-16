@@ -42,10 +42,22 @@ public class ContactFragment extends BitmapFragment {
                         startActivity(intent);
                 }
             });
+        ImageButton contactXiButton = (ImageButton) view.findViewById(R.id.imageButton_contact_xi);
+        contactXiButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+                Log.i(TAG, "!!!!!! Contact Xi Clicked");
+                Uri uri = Uri.parse(getString(R.string.xi_url));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
         Log.i(TAG, "!!!!!! ViewCreated");
 
         // Add resource to bitmap manager
         addBitmap(R.id.imageView_contact_ling, R.drawable.head_ling);
+        addBitmap(R.id.imageView_contact_xi, R.drawable.head_xi);
+        addBitmap(R.id.imageButton_contact_facebook, R.drawable.ic_facebook);
+        addBitmap(R.id.imageButton_contact_twitter, R.drawable.ic_twitter);
 
         return view;
     }

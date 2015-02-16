@@ -16,4 +16,17 @@
     <dimen name="social_media_icon_margin">4dp</dimen>
     <dimen name="login_slogan_text_size">12sp</dimen>
 
+    <dimen name="order_photo_height">200dp</dimen>
+    <dimen name="order_photo_margin">0dp</dimen>
+    <dimen name="order_button_width">48dp</dimen>
+    <dimen name="order_button_margin">8dp</dimen>
+    <dimen name="order_button_text_size">24sp</dimen>
+    <dimen name="order_count_text_size">18sp</dimen>
+    <dimen name="order_price_text_size">12sp</dimen>
+    <dimen name="order_price_margin">12dp</dimen>
+    <dimen name="order_photo_margin_horizontal">3dp</dimen>
+    <dimen name="order_greeting_margin">3dp</dimen>
+    <dimen name="order_description_margin">3dp</dimen>
+    <dimen name="order_description_text_size">15sp</dimen>
+
 </resources>

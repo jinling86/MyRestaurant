@@ -6,4 +6,10 @@
     <item name="login_greeting" type="color">#ff000b70</item>
     <item name="login_edit" type="color">#50d1ffdb</item>
     <item name="button_stroke" type="color">#50c8c8c8</item>
+    <item name="order_greeting" type="color">#ffff0000</item>
+    <item name="order_light" type="color">#ffffff7d</item>
+    <item name="order_dark" type="color">#ff000078</item>
+    <item name="order_confirm" type="color">#64000000</item>
+    <item name="holo" type="color">#00000000</item>
+
 </resources>

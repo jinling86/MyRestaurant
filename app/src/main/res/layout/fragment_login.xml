@@ -44,7 +44,7 @@
                     android:id="@+id/button_sign_out"
                     android:singleLine="true"
                     android:textSize="@dimen/login_button_size"
-                    android:background="@drawable/logout_button"
+                    android:background="@drawable/button_logout"
                     />
             </LinearLayout>
 
@@ -103,9 +103,8 @@
                     android:textSize="@dimen/login_button_size"
                     android:layout_below="@id/editText_login_password"
                     android:layout_marginTop="@dimen/login_widget_margin"
-                    android:background="@drawable/login_button"
-                    android:layout_centerHorizontal="true"
-                    android:shadowRadius="50.0"/>
+                    android:background="@drawable/button_login"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 
@@ -115,7 +114,7 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_below="@id/login_widgets_layout"
             android:layout_marginTop="@dimen/login_widget_height" >
 
@@ -128,7 +127,7 @@
                 android:layout_width="@dimen/social_media_icon_weight"
                 android:layout_height="@dimen/social_media_icon_weight"
                 android:id="@+id/imageButton_login_twitter"
-                android:layout_marginLeft="@dimen/social_media_icon_margin" />
+                android:layout_marginStart="@dimen/social_media_icon_margin" />
 
         </LinearLayout>
 

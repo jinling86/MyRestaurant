@@ -10,53 +10,405 @@
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    tools:context=".MainActivity$OrderFragment" >
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/order_greeting_margin">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Place your order here!"
+        android:layout_marginTop="@dimen/order_greeting_margin"
+        android:layout_marginBottom="@dimen/order_greeting_margin"
+        android:text="@string/order_greeting"
         android:id="@+id/textView_order"
         android:layout_gravity="center_horizontal" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_photo_height"
+        android:layout_marginTop="@dimen/order_photo_margin"
+        android:layout_marginStart="@dimen/order_photo_margin_horizontal"
+        android:layout_marginEnd="@dimen/order_photo_margin_horizontal"
+        android:layout_gravity="center_horizontal">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView_food_1"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/order_description_margin"
+            android:layout_marginTop="@dimen/order_description_margin"
+            android:textSize="@dimen/order_description_text_size"
+            android:text="@string/order_food_1_description"
+            android:textColor="@color/order_light"
+            android:id="@+id/textView_food_1_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/order_button_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/order_button_margin">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_plus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_1_plus"
+                android:background="@drawable/button_plus"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/order_button_margin" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_minus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_1_minus"
+                android:background="@drawable/button_minus"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/order_button_margin" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_default_count"
+                    android:textSize="@dimen/order_count_text_size"
+                    android:id="@+id/textView_food_1_amount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_price_margin"
+                    android:gravity="center"
+                    android:textSize="@dimen/order_price_text_size"
+                    android:text="@string/order_default_price"
+                    android:id="@+id/textView_food_1_price" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_photo_height"
+        android:layout_marginTop="@dimen/order_photo_margin"
+        android:layout_marginStart="@dimen/order_photo_margin_horizontal"
+        android:layout_marginEnd="@dimen/order_photo_margin_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView_food_2"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/order_description_margin"
+            android:layout_marginTop="@dimen/order_description_margin"
+            android:textSize="@dimen/order_description_text_size"
+            android:text="@string/order_food_2_description"
+            android:textColor="@color/order_dark"
+            android:id="@+id/textView_food_2_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/order_button_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/order_button_margin">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_plus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_2_plus"
+                android:background="@drawable/button_plus"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/order_button_margin" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_minus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_2_minus"
+                android:background="@drawable/button_minus"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/order_button_margin" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_default_count"
+                    android:textSize="@dimen/order_count_text_size"
+                    android:id="@+id/textView_food_2_amount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_price_margin"
+                    android:gravity="center"
+                    android:textSize="@dimen/order_price_text_size"
+                    android:text="@string/order_default_price"
+                    android:id="@+id/textView_food_2_price" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_photo_height"
+        android:layout_marginTop="@dimen/order_photo_margin"
+        android:layout_marginStart="@dimen/order_photo_margin_horizontal"
+        android:layout_marginEnd="@dimen/order_photo_margin_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView_food_3"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/order_description_margin"
+            android:layout_marginTop="@dimen/order_description_margin"
+            android:textSize="@dimen/order_description_text_size"
+            android:text="@string/order_food_3_description"
+            android:textColor="@color/order_light"
+            android:id="@+id/textView_food_3_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/order_button_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/order_button_margin">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_plus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_3_plus"
+                android:background="@drawable/button_plus"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/order_button_margin" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_minus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_3_minus"
+                android:background="@drawable/button_minus"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/order_button_margin" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_default_count"
+                    android:textSize="@dimen/order_count_text_size"
+                    android:id="@+id/textView_food_3_amount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_price_margin"
+                    android:gravity="center"
+                    android:textSize="@dimen/order_price_text_size"
+                    android:text="@string/order_default_price"
+                    android:id="@+id/textView_food_3_price" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/order_photo_height"
+        android:layout_marginTop="@dimen/order_photo_margin"
+        android:layout_marginStart="@dimen/order_photo_margin_horizontal"
+        android:layout_marginEnd="@dimen/order_photo_margin_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView_food_4"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/order_description_margin"
+            android:layout_marginTop="@dimen/order_description_margin"
+            android:textSize="@dimen/order_description_text_size"
+            android:text="@string/order_food_4_description"
+            android:textColor="@color/order_light"
+            android:id="@+id/textView_food_4_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <RelativeLayout
+            android:layout_width="@dimen/order_button_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/order_button_margin">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_plus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_4_plus"
+                android:background="@drawable/button_plus"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/order_button_margin" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_minus"
+                android:textSize="@dimen/order_button_text_size"
+                android:id="@+id/button_food_4_minus"
+                android:background="@drawable/button_minus"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/order_button_margin" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order_default_count"
+                    android:textSize="@dimen/order_count_text_size"
+                    android:id="@+id/textView_food_4_amount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_price_margin"
+                    android:gravity="center"
+                    android:textSize="@dimen/order_price_text_size"
+                    android:text="@string/order_default_price"
+                    android:id="@+id/textView_food_4_price" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/order_slogan"
+            android:id="@+id/button_order"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:textAllCaps="false"
+            android:background="@drawable/button_order"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/social_media_icon_margin"
+            android:layout_marginEnd="@dimen/social_media_icon_margin">
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:id="@+id/imageView_food_sandwiches"
-                android:layout_gravity="center_horizontal" />
+            <ImageButton
+                android:layout_width="@dimen/social_media_icon_weight"
+                android:layout_height="@dimen/social_media_icon_weight"
+                android:id="@+id/imageButton_order_facebook"/>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/checkBox_food_sandwiches"
-                android:layout_gravity="center_horizontal" />
+            <ImageButton
+                android:layout_width="@dimen/social_media_icon_weight"
+                android:layout_height="@dimen/social_media_icon_weight"
+                android:id="@+id/imageButton_order_twitter"
+                android:layout_marginStart="@dimen/social_media_icon_margin" />
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order Now!"
-        android:id="@+id/button_order"
-        android:layout_gravity="center_horizontal"
-        android:theme="@style/Base.V14.Theme.AppCompat.Light" />
+    </RelativeLayout>
 
 </LinearLayout>
 

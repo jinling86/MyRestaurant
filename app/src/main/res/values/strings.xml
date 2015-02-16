@@ -14,8 +14,21 @@
     <string name="sign_in_slogan">Sign in/up to taste our delicious food</string>
     <string name="sign_in">Click to Sign up(in)</string>
     <string name="contact_ling">Ling (Chef)\n\nXinDongFang Chef School\nMayor in French Cuisine\n\nClick to See Detail</string>
+    <string name="contact_xi">Xi (CEO)\n\nFounder of MyRestaurant\nOwner of Canada Largest Seafood Farm\n\nClick to See Detail</string>
     <string name="facebook_url">http://www.facebook.com</string>
     <string name="twitter_url">http://www.twitter.com</string>
     <string name="ling_url">http://ca.linkedin.com/pub/ling-jin/96/40b/404</string>
+    <string name="xi_url">http://ca.linkedin.com/pub/xi-song/93/54a/9ab/zh-cn</string>
+    <string name="order_plus">+</string>
+    <string name="order_minus">-</string>
+    <string name="order_default_count">0</string>
+    <string name="order_default_price">0.0\n($)</string>
+    <string name="order_greeting">Today\'s Special</string>
+    <string name="order_food_1_description">Dueling Lobster Tails</string>
+    <string name="order_food_2_description">Lobster Bake</string>
+    <string name="order_food_3_description">Lobster Dream</string>
+    <string name="order_food_4_description">Lobster Shrimp Salmon</string>
+    <string name="order_slogan">I Want Them!</string>
+    <string name="story">Here at My Restaurant we’re passionate about serving our guests great seafood. It’s why we go the extra mile to bring you the best dining experience possible. Our fishermen take pride in catching only the highest quality seafood, and the freshest fish. Our grill masters expertly perfect flavors, cooking seafood and steak over a fire grill. And our servers pull out all the stops to make every dining experience feel extra special. It’s our passion. It’s our pride. Because at Red Lobster, we Sea Food Differently.</string>
 
 </resources>
