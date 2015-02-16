@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MyRestaurant</string>
-    <string name="action_welcome">MyRestaurant</string>
+    <string name="app_name">My Restaurant</string>
+    <string name="action_welcome">My Restaurant</string>
     <string name="menu_exit">Exit</string>
     <string name="statistics">We have not sold anything yet!</string>
     <string name="username_error">Username Format Error!</string>
@@ -28,7 +28,8 @@
     <string name="order_food_2_description">Lobster Bake</string>
     <string name="order_food_3_description">Lobster Dream</string>
     <string name="order_food_4_description">Lobster Shrimp Salmon</string>
-    <string name="order_slogan">I Want Them!</string>
-    <string name="story">Here at My Restaurant we’re passionate about serving our guests great seafood. It’s why we go the extra mile to bring you the best dining experience possible. Our fishermen take pride in catching only the highest quality seafood, and the freshest fish. Our grill masters expertly perfect flavors, cooking seafood and steak over a fire grill. And our servers pull out all the stops to make every dining experience feel extra special. It’s our passion. It’s our pride. Because at Red Lobster, we Sea Food Differently.</string>
+    <string name="order_slogan">I Want Them, Now!</string>
+    <string name="story">Here at My Restaurant we\'re passionate about serving our guests great seafood. It\'s why we go the extra mile to bring you the best dining experience possible. Our fishermen take pride in catching only the highest quality seafood, and the freshest fish. Our grill masters expertly perfect flavors, cooking seafood and steak over a fire grill. And our servers pull out all the stops to make every dining experience feel extra special. It’s our passion. It\'s our pride. Because at Red Lobster, we Sea Food Differently.</string>
+    <string name="welcome_report_button">Click Here to See Today\'s Favorites</string>
 
 </resources>

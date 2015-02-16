@@ -27,17 +27,19 @@ public class WelcomeFragment extends BitmapFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
-        orderStatistics = (TextView) view.findViewById(R.id.textView_count);
+        //orderStatistics = (TextView) view.findViewById(R.id.textView_count);
         Log.i(TAG, "!!!!!! ViewCreated");
 
         addBitmap(R.id.imageView_log, R.drawable.ic_log);
+        addBitmap(R.id.imageButton_welcome_facebook, R.drawable.ic_facebook);
+        addBitmap(R.id.imageButton_welcome_twitter, R.drawable.ic_twitter);
 
         return view;
     }
 
     @Override
     public void onResume() {
-        orderStatistics.setText("We sold " + MainActivity.data.getOrderStatistics() + " orders today!");
+        //orderStatistics.setText("We sold " + MainActivity.data.getOrderStatistics() + " orders today!");
         super.onResume();
         Log.i(TAG, "!!!!!! Resumed and Updated");
     }

@@ -44,7 +44,6 @@ public class OrderFragment extends BitmapFragment{
                     currentActivity.gotoFragment(MainActivity.WELCOME_FRAGMENT);
                     Toast.makeText(getActivity(), "Thank you for your purchase!", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
         Log.i(TAG, "!!!!!! ViewCreated");

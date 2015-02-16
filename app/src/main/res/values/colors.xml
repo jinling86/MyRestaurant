@@ -10,6 +10,8 @@
     <item name="order_light" type="color">#ffffff7d</item>
     <item name="order_dark" type="color">#ff000078</item>
     <item name="order_confirm" type="color">#64000000</item>
-    <item name="holo" type="color">#00000000</item>
+    <item name="holo" type="color">#32969696</item>
+    <item name="report_button" type="color">#ff908dff</item>
+    <item name="story_text" type="color">#ffff743a</item>
 
 </resources>

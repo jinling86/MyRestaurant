@@ -374,7 +374,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/order_button_margin" >
 
         <Button
             android:layout_width="wrap_content"
@@ -385,16 +386,14 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:textAllCaps="false"
-            android:background="@drawable/button_order"/>
+            android:background="@drawable/button_order" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/social_media_icon_margin"
-            android:layout_marginEnd="@dimen/social_media_icon_margin">
+            android:layout_alignParentBottom="true">
 
             <ImageButton
                 android:layout_width="@dimen/social_media_icon_weight"
