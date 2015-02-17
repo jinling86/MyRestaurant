@@ -13,6 +13,7 @@
     <dimen name="contact_button_margin">16dp</dimen>
     <dimen name="contact_image_dimen">176dp</dimen>
     <dimen name="social_media_icon_weight">24dp</dimen>
+    <dimen name="social_media_icon_position">8dp</dimen>
     <dimen name="social_media_icon_margin">4dp</dimen>
     <dimen name="login_slogan_text_size">12sp</dimen>
 
