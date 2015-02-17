@@ -1,5 +1,7 @@
 package ca.uottawa.ljin027.myrestaurant;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -51,6 +54,13 @@ public class LoginFragment extends BitmapFragment {
             public void onClick(View view) {
                 String username = loginUsername.getText().toString();
                 String password = loginPassword.getText().toString();
+
+                // We force the soft keyboard to be close here
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                if(imm != null) {
+                    if(loginUsername != null) imm.hideSoftInputFromWindow(loginUsername.getWindowToken(), 0);
+                    if(loginPassword != null) imm.hideSoftInputFromWindow(loginPassword.getWindowToken(), 0);
+                }
 
                 if (username.length() == 0) {
                     Toast.makeText(getActivity(), getString(R.string.username_error), Toast.LENGTH_SHORT).show();
@@ -176,4 +186,5 @@ public class LoginFragment extends BitmapFragment {
         signInButton.setVisibility(View.VISIBLE);
         signOutButton.setVisibility(View.INVISIBLE);
     }
+
 }

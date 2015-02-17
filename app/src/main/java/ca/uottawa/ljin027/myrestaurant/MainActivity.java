@@ -1,5 +1,6 @@
 package ca.uottawa.ljin027.myrestaurant;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -11,9 +12,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 
@@ -24,7 +27,7 @@ import ca.uottawa.ljin027.myrestaurant.R;
  */
 public class MainActivity extends ActionBarActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "~~~MainActivity";
     TabsAdapter tabsAdapter;
     ViewPager viewPager;
 
@@ -68,23 +71,24 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
             @Override
             public void transformPage(View view, float position) {
-                int index = (Integer) view.getTag();
-                Drawable currentDrawable = background.getDrawable(index);
+            int index = (Integer) view.getTag();
+            Drawable currentDrawable = background.getDrawable(index);
 
-                if(position <= -1 || position >= 1) {
-                    currentDrawable.setAlpha(0);
-                } else if(position == 0) {
-                    currentDrawable.setAlpha(opaque);
-                } else {
-                    // The square operation make the effect smooth
-                    currentDrawable.setAlpha((int)(opaque - position*position*semi_opaque));
-                }
+            if(position <= -1 || position >= 1) {
+                currentDrawable.setAlpha(0);
+            } else if(position == 0) {
+                currentDrawable.setAlpha(opaque);
+            } else {
+                // The square operation make the effect smooth
+                currentDrawable.setAlpha((int)(opaque - position*position*semi_opaque));
+            }
             }
         });
 
         if (savedInstanceState != null) {
             actionBar.setSelectedNavigationItem(savedInstanceState.getInt("tab position", 0));
             data = savedInstanceState.getParcelable("order state");
+            Log.i(TAG, "Restore state");
         }
     }
 
@@ -95,6 +99,7 @@ public class MainActivity extends ActionBarActivity {
         super.onSaveInstanceState(outState);
         outState.putInt("tab position", getSupportActionBar().getSelectedNavigationIndex());
         outState.putParcelable("order state", data);
+        Log.i(TAG, "Save state");
     }
 
     @Override
@@ -107,6 +112,11 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_exit) {
+            // Move activity to background
+            moveTaskToBack(true);
+            return true;
+        } else if (id == R.id.action_discard) {
+            // Kill activity directly
             finish();
             return true;
         }
@@ -127,6 +137,7 @@ public class MainActivity extends ActionBarActivity {
         implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 
         private final Context mContext;
+        private final Activity mActivity;
         private final ActionBar mActionBar;
         private final ViewPager mViewPager;
         private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
@@ -144,6 +155,7 @@ public class MainActivity extends ActionBarActivity {
         public TabsAdapter(ActionBarActivity activity, ViewPager pager) {
             super(activity.getSupportFragmentManager());
             mContext = activity;
+            mActivity = activity;
             mActionBar = activity.getSupportActionBar();
             mViewPager = pager;
             mViewPager.setAdapter(this);
@@ -190,6 +202,13 @@ public class MainActivity extends ActionBarActivity {
                 if (mTabs.get(i) == tag) {
                     mViewPager.setCurrentItem(i);
                 }
+            }
+
+            // Close soft keyboard
+            InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View view = mActivity.getCurrentFocus();
+            if(view != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         }
 

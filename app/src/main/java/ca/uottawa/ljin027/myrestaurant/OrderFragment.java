@@ -223,6 +223,7 @@ public class OrderFragment extends BitmapFragment{
         textView_food_3_price.setText(MainActivity.data.getPrice(3));
         textView_food_4_count.setText(MainActivity.data.getCount(4));
         textView_food_4_price.setText(MainActivity.data.getPrice(4));
+
         super.onResume();
         Log.i(TAG, "!!!!!! Resumed");
     }
