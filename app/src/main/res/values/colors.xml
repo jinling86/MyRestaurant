@@ -3,7 +3,7 @@
     <item name="black" type="color">#ff000000</item>
     <item name="login_button" type="color">#50f7ff78</item>
     <item name="logout_button" type="color">#50ffbca1</item>
-    <item name="login_greeting" type="color">#ff000b70</item>
+    <item name="login_greeting" type="color">#ff00dcff</item>
     <item name="login_edit" type="color">#50d1ffdb</item>
     <item name="button_stroke" type="color">#50c8c8c8</item>
     <item name="order_greeting" type="color">#ffff0000</item>

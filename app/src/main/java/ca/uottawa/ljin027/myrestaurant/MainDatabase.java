@@ -90,18 +90,17 @@ public class MainDatabase implements Parcelable {
     }
 
     public MainDatabase() {
-        currentUser = null;
         allUsers = new TreeMap<String, String> ();
     }
 
     // State of user login
-    final private static int CURRENT_USER_VALID = 1;
-    final private static int CURRENT_USER_INVALID = 0;
+    final private int CURRENT_USER_VALID = 1;
+    final private int CURRENT_USER_INVALID = 0;
 
     // Current logged in user
-    static private String currentUser;
+    private String currentUser = null;
     // Signed up users
-    static private TreeMap<String, String> allUsers;
+    private TreeMap<String, String> allUsers;
 
     // Some shorthand methods
     public void newUser(String username) { currentUser = username; }
