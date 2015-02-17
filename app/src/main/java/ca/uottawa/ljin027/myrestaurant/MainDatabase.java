@@ -15,6 +15,12 @@ import java.util.TreeMap;
  * retore the previously saved state.
  * We save four kinds of information:
  * Total order numbers; Current ordering state; Current logined user; All signed up users.
+ *
+ * Feb. 17, Ling Jin
+ * I am not sure whether the method of this class works,
+ * The android simply put this object into a map when save the instance's state,
+ * And at most circumstances, android does not try to restore the app state...
+ * Maybe I can use a static variable to solve all the problem...
  */
 public class MainDatabase implements Parcelable {
     // Read and write important state into/out of a parcelable object
