@@ -23,7 +23,23 @@ import java.util.ArrayList;
 import ca.uottawa.ljin027.myrestaurant.R;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 10/02/2015.
+ * This class implements the main activity of our app. Moreover, there is only one activity in our
+ * app. The consider is that althought the four activities can have a operations chain like:
+ * show welcome screen -> show contact of the restaurant -> make order -> log in
+ * But it is more reasonable to give these activities more independency.
+ * So we use a Action Bar (Requirement 1), not a menu to implement it.
+ * Action bar is based on Fragments, whereas menu is based on actions.
+ *
+ * In this class, an action bar adaptor is used to manage the four fragments of our apps.
+ * Also, it need to process the save and resume operations.
+ * The menu of our app has two buttons.
+ * The resume button (also called exit) put the app into the system background, the state will be saved.
+ * The exit button (also called discard) kill the app directly, no state will be saved.
+ *
+ * (Requirement 5) is implemented in every fragments. It involves two ImageButtons.
+ * (Requirement 7) is documented in the comments part of all source files.
  */
 public class MainActivity extends ActionBarActivity {
 
@@ -37,9 +53,9 @@ public class MainActivity extends ActionBarActivity {
     static public MainDatabase data = null;
 
     public static int WELCOME_FRAGMENT = 0;
-    public static int LOGIN_FRAGMENT = 1;
+    public static int CONTACT_FRAGMENT = 1;
     public static int ORDER_FRAGMENT = 2;
-    public static int CONTACT_FRAGMENT = 3;
+    public static int LOGIN_FRAGMENT = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +64,7 @@ public class MainActivity extends ActionBarActivity {
 
         data = new MainDatabase();
 
+        // Initialize the action bar
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         final ActionBar actionBar = getSupportActionBar();
@@ -57,9 +74,9 @@ public class MainActivity extends ActionBarActivity {
 
         tabsAdapter = new TabsAdapter(this, viewPager);
         tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_welcome),WelcomeFragment.class, null);
-        tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_login),LoginFragment.class, null);
-        tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_order),OrderFragment.class, null);
         tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_contact),ContactFragment.class, null);
+        tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_order),OrderFragment.class, null);
+        tabsAdapter.addTab(actionBar.newTab().setIcon(R.drawable.ic_login),LoginFragment.class, null);
 
         // http://stackoverflow.com/questions/25867376/animation-in-viewpager-tab-change-fadein-fadeout-as-like-linkedin-introduction
         final LayerDrawable background = (LayerDrawable) viewPager.getBackground();
@@ -85,6 +102,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        // Restore previous system state
         if (savedInstanceState != null) {
             actionBar.setSelectedNavigationItem(savedInstanceState.getInt("tab position", 0));
             data = savedInstanceState.getParcelable("order state");
@@ -102,12 +120,14 @@ public class MainActivity extends ActionBarActivity {
         Log.i(TAG, "Save state");
     }
 
+    // Create menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+    // Two buttons of the menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -132,7 +152,10 @@ public class MainActivity extends ActionBarActivity {
             tabsAdapter.onPageSelected(fragmentIndex);
     }
 
+    // The code of the adapter refers to
     // http://developer.android.com/reference/android/support/v4/view/ViewPager.html
+    // We modified the class in order to implement our app function.
+    // (Set meaningful tags, close soft keyboards... )
     public static class TabsAdapter extends FragmentPagerAdapter
         implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
 

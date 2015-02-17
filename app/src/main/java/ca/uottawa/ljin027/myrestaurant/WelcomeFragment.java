@@ -1,6 +1,5 @@
 package ca.uottawa.ljin027.myrestaurant;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,17 +7,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 10/02/2015.
+ * This class implements the welcome activity (requirement 1).
+ * The welcome activity serves as the main activity of our app.
+ * It shows a log, a description and a button.
+ * Clicking the button shows the history of the previous orders (requirement 6).
+ * The order report is implemented using fragment cause it is a little wired to make this little
+ * function a independent activity.
  */
 public class WelcomeFragment extends BitmapFragment {
-
     TextView orderStatistics;
 
     // Constructor, initialize super class and TAG
@@ -30,13 +33,15 @@ public class WelcomeFragment extends BitmapFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_welcome, container, false);
+
+        // A button click listener to show the report of the order history
         Button buttonReport = (Button) view.findViewById(R.id.button_report);
         buttonReport.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MessageDialog reportDialog = new MessageDialog();
-                reportDialog.setMessage(MainActivity.data.getOrderStatistics());
-                reportDialog.show(getFragmentManager(), null);
+            MessageDialog reportDialog = new MessageDialog();
+            reportDialog.setMessage(MainActivity.data.getOrderStatistics());
+            reportDialog.show(getFragmentManager(), null);
             }
         });
 

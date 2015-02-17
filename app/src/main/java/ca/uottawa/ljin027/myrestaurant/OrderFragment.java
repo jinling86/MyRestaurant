@@ -17,7 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 11/02/2015.
+ * This class processes the orders. It displays four dishes to the user and count the user's choices
+ * until the user click the order button. A maximum number of dishes is implied. Also it will
+ * calculate the prices of the food.
+ * A user mush sign in first to make order.
+ * This is implemented for the requirement 3 of our assignment.
+ *
  */
 public class OrderFragment extends BitmapFragment{
 
@@ -33,7 +40,6 @@ public class OrderFragment extends BitmapFragment{
     // Constructor, initialize super class and TAG
     public OrderFragment() {
         super();
-
         TAG = "--> OrderFragment";
     }
 
@@ -72,6 +78,7 @@ public class OrderFragment extends BitmapFragment{
             }
         });
 
+        // Set click listeners
         CountChangeListener plusMinusListener = new CountChangeListener();
         Button food1PlusButton = (Button) view.findViewById(R.id.button_food_1_plus);
         food1PlusButton.setOnClickListener(plusMinusListener);
@@ -136,6 +143,9 @@ public class OrderFragment extends BitmapFragment{
         return view;
     }
 
+    // Click listeners implementations
+    // Although we require the user to sign in before make an order,
+    // we still process the button clicks. However, a hint will be displayed to warn the user
     private class CountChangeListener implements Button.OnClickListener {
         @Override
         public void onClick(View view) {
@@ -186,6 +196,9 @@ public class OrderFragment extends BitmapFragment{
         }
     }
 
+    // A dialog ask for confirmation
+    // If user confirms the order, we will jump to the welcome activity
+    // If user cancels the order, do nothing
     public static class AskDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -213,6 +226,7 @@ public class OrderFragment extends BitmapFragment{
         }
     }
 
+    // Restore previous state
     @Override
     public void onResume() {
         textView_food_1_count.setText(MainActivity.data.getCount(1));

@@ -18,9 +18,17 @@ import android.widget.Toast;
 import java.util.TreeMap;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 11/02/2015.
+ * This class implements the login activity based on fragment. (Requirement 4)
+ * A user can sign up if he/she has not signed up yet.
+ * After signed up, he/she can sign out or sign in with the right password.
+ * A user must sign in first to order.
+ * The username and the password field cannot be empty.
+ * After sign up/in, a welcome text will show on the top of the fragment.
  */
 public class LoginFragment extends BitmapFragment {
+    // Widgets variable, for button listener interface
     private TextView loginGreetings = null;
     private TextView loginHint = null;
     private TextView loginUsername = null;
@@ -150,6 +158,7 @@ public class LoginFragment extends BitmapFragment {
         return view;
     }
 
+    // Enable/disable widgets according to saved state
     @Override
     public void onResume() {
         loginGreetings.setText(getGreeting());
@@ -162,6 +171,7 @@ public class LoginFragment extends BitmapFragment {
         Log.i(TAG, "!!!!!! Resumed and Updated");
     }
 
+    // Make a greeting string
     private String getGreeting() {
         if(MainActivity.data.hasUser())
             return getString(R.string.greet_to) + " " + MainActivity.data.getCurrentUser()  + " !";
@@ -169,6 +179,7 @@ public class LoginFragment extends BitmapFragment {
             return getString(R.string.greet_to);
     }
 
+    // Set widgets to disable user to sign in
     private void disableLogin() {
         loginGreetings.setVisibility(View.VISIBLE);
         loginHint.setVisibility(View.INVISIBLE);
@@ -178,6 +189,7 @@ public class LoginFragment extends BitmapFragment {
         signOutButton.setVisibility(View.VISIBLE);
     }
 
+    // Set widgets to enable user to sign in
     private void enableLogin() {
         loginGreetings.setVisibility(View.VISIBLE);
         loginHint.setVisibility(View.VISIBLE);

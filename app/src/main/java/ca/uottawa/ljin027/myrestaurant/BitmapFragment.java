@@ -4,17 +4,26 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.TabWidget;
 
 import java.util.Set;
 import java.util.TreeMap;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 14/02/2015.
+ * This class manages the bitmap resources of the widgets of the fragment. The bitmaps in fragment
+ * may cause "memory leakage", which can be observed easily when debug on old virtual cell phone.
+ * The class is implemented to add compability of our app.
+ * All the tabbed Fragment classes in this app should derive from this class.
+ * The basic idea refers to:
+ * http://stackoverflow.com/questions/6447535/jpg-as-background-in-activity-produces-memory-leak
+ * http://android-developers.blogspot.co.uk/2009/01/avoiding-memory-leaks.html
  */
+
 public class BitmapFragment  extends android.support.v4.app.Fragment {
+
+    // Shared variables
     protected String TAG = null;
     private TreeMap<Integer, Integer> resourceMap = new TreeMap<Integer, Integer>();
 
@@ -54,9 +63,6 @@ public class BitmapFragment  extends android.support.v4.app.Fragment {
     }
 
     // Reload all the bitmap into memory
-    // Please refer to:
-    // http://stackoverflow.com/questions/6447535/jpg-as-background-in-activity-produces-memory-leak
-    // http://android-developers.blogspot.co.uk/2009/01/avoiding-memory-leaks.html
     private void recycleImages() {
         Set<Integer> viewIDs = resourceMap.keySet();
         for(int viewID: viewIDs) {

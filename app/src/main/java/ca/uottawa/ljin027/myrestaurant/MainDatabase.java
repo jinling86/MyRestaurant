@@ -7,9 +7,17 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 2015/2/14.
+ * This class manages the life circle of the MainActivity.
+ * When a activity is temporarily disable, the screen is rotated, or another app is called,
+ * we will try to save the important state of the app. After the app is resumes, we also try to
+ * retore the previously saved state.
+ * We save four kinds of information:
+ * Total order numbers; Current ordering state; Current logined user; All signed up users.
  */
 public class MainDatabase implements Parcelable {
+    // Read and write important state into/out of a parcelable object
     public static final Parcelable.Creator<MainDatabase> CREATOR
             = new Parcelable.Creator<MainDatabase>() {
         public MainDatabase createFromParcel(Parcel in) {
@@ -19,9 +27,6 @@ public class MainDatabase implements Parcelable {
             return new MainDatabase[size];
         }
     };
-
-    final private static int CURRENT_USER_VALID = 1;
-    final private static int CURRENT_USER_INVALID = 0;
 
     public void writeToParcel(Parcel out, int flags) {
         // Save order number
@@ -89,11 +94,16 @@ public class MainDatabase implements Parcelable {
         allUsers = new TreeMap<String, String> ();
     }
 
+    // State of user login
+    final private static int CURRENT_USER_VALID = 1;
+    final private static int CURRENT_USER_INVALID = 0;
+
     // Current logged in user
     static private String currentUser;
     // Signed up users
     static private TreeMap<String, String> allUsers;
 
+    // Some shorthand methods
     public void newUser(String username) { currentUser = username; }
     public boolean hasUser() { return !(currentUser == null); }
     public String getCurrentUser() { return currentUser; }
@@ -128,6 +138,7 @@ public class MainDatabase implements Parcelable {
     private int food_4_total = 0;
     private final int MAX_FOOD_COUNT = 10;
 
+    // When user confirms to order, clear the ordering state, add current order to the total orders
     public void newOrder() {
         food_1_total += food_1_count;
         food_2_total += food_2_count;
@@ -139,6 +150,10 @@ public class MainDatabase implements Parcelable {
         food_4_count = 0;
         orderStatistics++;
     }
+
+    /*
+     * The following methods are shorthand method for processing orders
+     */
 
     public String getOrderStatistics() {
         if(orderStatistics == 0) {

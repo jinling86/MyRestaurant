@@ -11,10 +11,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 /**
+ * @author Ling Jin and Xi Song
  * Created by Ling on 10/02/2015.
+ * This class implements the contact activity based on fragment. (Requirement 2)
+ * We display our information as the directors of the restaurant.
+ * An invisible button lies on the image and text view of each person. So, when click the adjacent
+ * area of the image and text, a hot link to the linked page will be open.
  */
+
 public class ContactFragment extends BitmapFragment {
 
+    // Constructor, set the debug tag
     public ContactFragment() {
         super();
         TAG = "--> ContactFragment";
