@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 14/02/2015.
  * This class manages the bitmap resources of the widgets of the fragment. The bitmaps in fragment
  * may cause "memory leakage", which can be observed easily when debug on old virtual cell phone.

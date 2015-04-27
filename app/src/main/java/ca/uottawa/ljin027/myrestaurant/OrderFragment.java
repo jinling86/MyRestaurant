@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 11/02/2015.
  * This class processes the orders. It displays four dishes to the user and count the user's choices
  * until the user click the order button. A maximum number of dishes is implied. Also it will

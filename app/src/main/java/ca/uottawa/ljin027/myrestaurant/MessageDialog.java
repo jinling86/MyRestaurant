@@ -6,7 +6,7 @@ import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 2015/2/14.
  * We use a very simple dialog fragment to display message to user
  * Please refer to:

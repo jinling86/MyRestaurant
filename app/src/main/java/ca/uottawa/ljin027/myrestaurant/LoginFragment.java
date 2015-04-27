@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.util.TreeMap;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 11/02/2015.
  * This class implements the login activity based on fragment. (Requirement 4)
  * A user can sign up if he/she has not signed up yet.

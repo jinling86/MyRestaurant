@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import ca.uottawa.ljin027.myrestaurant.R;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 10/02/2015.
  * This class implements the main activity of our app. Moreover, there is only one activity in our
  * app. The consider is that althought the four activities can have a operations chain like:

@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 2015/2/14.
  * This class manages the life circle of the MainActivity.
  * When a activity is temporarily disable, the screen is rotated, or another app is called,

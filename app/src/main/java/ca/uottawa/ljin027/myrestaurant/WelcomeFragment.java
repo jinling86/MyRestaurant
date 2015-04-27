@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
- * @author Ling Jin and Xi Song
+ * @author Ling Jin
  * Created by Ling on 10/02/2015.
  * This class implements the welcome activity (requirement 1).
  * The welcome activity serves as the main activity of our app.
