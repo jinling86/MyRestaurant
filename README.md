@@ -16,4 +16,6 @@ It is my first Android App and my first Java program. Its fragment resource mana
 
 # License
 
+A lot of figures are from Red Lobster. I will replace these figure when required.
+
 Feel free to use its code.
